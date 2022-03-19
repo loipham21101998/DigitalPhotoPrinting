@@ -1,0 +1,33 @@
+<!-- <div class="float-right">
+  <button pButton pRipple type="button" label="Refresh" class="p-button-info" style="height: 80px; width: 80px; border-radius: 50%;"></button><br><br>
+  <i class="fa fa-refresh" aria-hidden="true"></i>
+</div> -->
+<p-table [value]="accounts">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Birthday</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Role</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-account>
+      <tr>
+          <td>{{account?.id}}</td>
+          <td>{{account?.firstname}}</td>
+          <td>{{account?.lastname}}</td>
+          <td>{{account?.birthday}}</td>
+          <td>{{account?.email}}</td>
+          <td>{{account?.gender ? 'Male': ' Female'}}</td>
+          <td>{{account?.address}}</td>
+          <td>{{account?.phone}}</td>
+          <td>{{account?.role}}</td>
+      </tr>
+  </ng-template>
+</p-table>
+
