@@ -37,37 +37,55 @@ export class LoginComponent implements OnInit{
 
   }
 
-  submit(){
-    console.log(this.username);
-    console.log(this.password);
-    this.accountService.login(this.username,this.password).then(
-      res => {
-        this.checkaccount = res as boolean
-        // this.reloadPage();
-      },
-      err => {
-        console.log(err)
-      }
-    )
-  }
+  // submit(){
+  //   console.log(this.username);
+  //   console.log(this.password);
+  //   this.accountService.login(this.username,this.password).then(
+  //     res => {
+  //       this.checkaccount = res as boolean
+  //       // this.reloadPage();
+  //     },
+  //     err => {
+  //       console.log(err)
+  //     }
+  //   )
+  // }
 
   click1(){
     console.log(this.username);
     console.log(this.password);
     this.accountService.login(this.username,this.password).then(
+      // res => {
+      //   this.checkaccount = res as boolean
+      //   var c= this.checkaccount;
+      //   console.log(c)
+      //   // this.reloadPage();
+      //   if(c){
+      //     localStorage.setItem('session',String(this.checkaccount));
+
+      //     this.router.navigate(['/home']);
+      //   }else{
+      //     localStorage.setItem('session',String(this.checkaccount));
+      //     this.router.navigate(['/login'])
+      //   }
+      // },
       res => {
-        this.checkaccount = res as boolean
-        var c= this.checkaccount;
-        console.log(c)
+        this.account = res as Account
+        // console.log(this.account)
+        // console.log(this.account.role)
         // this.reloadPage();
-        if(c){
-          localStorage.setItem('session',String(this.checkaccount));
-          // this.router.navigate(['/home',{check : this.checkaccount}])
-          this.router.navigate(['/home']);
-        }else{
-          localStorage.setItem('session',String(this.checkaccount));
-          this.router.navigate(['/login'])
-        }
+        // console.log(this.account.username)
+          if(this.account.username != ""){
+            localStorage.setItem('session',this.account.role);
+            // alert('Null');
+            this.router.navigate(['/home']);
+          }else{
+            // localStorage.setItem('session',String(this.checkaccount));
+            this.router.navigate(['/login'])
+            this.reloadPage();
+            // alert('true')
+          }
+
       },
       err => {
         console.log(err)

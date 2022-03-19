@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit{
   ){}
 
   ngOnInit(){
-    this.accCheck = localStorage.getItem('session') =='true';
+    this.accCheck = localStorage.getItem('session') != null;
     this.accName = 'LoiPham'
     // this.activatedRoute.paramMap.subscribe(p => {
     //   this.accCheck = JSON.parse(p.get('check'));
@@ -47,5 +47,10 @@ export class HomeComponent implements OnInit{
     this.emlementRef.nativeElement.appendChild(fontawesome);
     this.emlementRef.nativeElement.appendChild(bundlebootsrap);
     this.emlementRef.nativeElement.appendChild(fontawesomestyle);
+  }
+
+  logout(){
+    localStorage.removeItem('session');
+    window.location.reload();
   }
 }

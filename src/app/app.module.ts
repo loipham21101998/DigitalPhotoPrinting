@@ -14,6 +14,8 @@ import { NotFoundComponent } from './component/404/NotFound.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalService } from './services/globals.service';
 import {TableModule} from 'primeng/table';
+import { PrintComponent } from './component/print/print.component';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {TableModule} from 'primeng/table';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PrintComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import {TableModule} from 'primeng/table';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    FileUploadModule
   ],
   providers: [
     AdminService,

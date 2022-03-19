@@ -5,6 +5,7 @@ import { AllUserComponent} from './admin/component/user/Allusercomponent';
 import { NotFoundComponent } from './component/404/NotFound.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
+import { PrintComponent } from './component/print/print.component';
 import { RegisterComponent } from './component/register/registercomponent';
 import { AdminService } from './services/admin.service';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   // ]},
   {path : 'login', component : LoginComponent},
   {path: 'register',component: RegisterComponent},
+  {path: 'print', component: PrintComponent}
   // {path: '**', component: NotFoundComponent  }
 
 ];

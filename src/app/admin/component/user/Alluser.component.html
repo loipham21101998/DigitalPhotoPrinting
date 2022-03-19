@@ -5,7 +5,7 @@
 <p-table [value]="accounts">
   <ng-template pTemplate="header">
       <tr>
-          <th>Id</th>
+          <th>No.</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Birthday</th>
@@ -18,7 +18,7 @@
   </ng-template>
   <ng-template pTemplate="body" let-account>
       <tr>
-          <td>{{account?.id}}</td>
+          <td>{{no}}</td>
           <td>{{account?.firstname}}</td>
           <td>{{account?.lastname}}</td>
           <td>{{account?.birthday}}</td>
@@ -30,4 +30,5 @@
       </tr>
   </ng-template>
 </p-table>
+
 

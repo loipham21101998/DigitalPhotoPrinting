@@ -70,14 +70,20 @@
                 Login
                 <!-- <a class="btn btn-primary" href="#" role="button">Link</a> -->
               </a>
-              <a [routerLink]="['/admin']" class="nav-link"  *ngIf="accCheck" > <!--href="/admin" -->
-                <div class="circleImgUser">
-                  <img src="https://cdn-icons.flaticon.com/png/512/3524/premium/3524385.png?token=exp=1647609851~hmac=ee78841b4ee9a253b4158d84ca666c3d"
-                    width="100%"
-                    style="position: absolute; top: 7px; height: 24px ; width: 24px"
-                  />
-                </div>
-              </a>
+              <div class="dropdown">
+                <a class="nav-link"  *ngIf="accCheck" > <!--href="/admin" -->
+                  <div class="circleImgUser">
+                    <img src="https://cdn-icons.flaticon.com/png/512/3524/premium/3524385.png?token=exp=1647609851~hmac=ee78841b4ee9a253b4158d84ca666c3d"
+                      width="100%"
+                      style="position: absolute; top: 7px; height: 24px ; width: 24px"
+                    />
+                  </div>
+                </a>
+                <div class="dropdown-content">
+                  <p><a href="#" (click)="logout()">Logout</a></p>
+                  </div>
+              </div>
+
             </li>
           </ul>
         </div>

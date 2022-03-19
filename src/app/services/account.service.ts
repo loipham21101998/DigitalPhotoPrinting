@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { lastValueFrom } from "rxjs";
+import { Account1 } from "../entities/accountinsert.entity";
 
 @Injectable()
 export class AccountService
@@ -18,6 +19,11 @@ export class AccountService
 
   async findall() {
     var value = this.httpClient.get(this.BASE_URL+"findall");
+    return await lastValueFrom(value);
+  }
+
+  async create(account: Account1) {
+    var value = this.httpClient.post(this.BASE_URL+"create",account);
     return await lastValueFrom(value);
   }
 

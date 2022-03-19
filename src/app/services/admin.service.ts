@@ -20,7 +20,7 @@ export class AdminService implements CanActivate
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     // this.check();
-    if(localStorage.getItem('session') == 'true'){
+    if(localStorage.getItem('session') == 'Admin'){
       return true;
     }
     this.router.navigate(['/login']);
