@@ -4,7 +4,7 @@ import { AllUserComponent } from './component/user/Allusercomponent';
 
 
 @Component({
-  // selector: 'app-root',
+  selector: 'app-root',
   templateUrl: './admin.component.html',
 })
 

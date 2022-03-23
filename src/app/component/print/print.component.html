@@ -116,32 +116,136 @@
   border: 0;
   transition: all .2s ease;
 }
+
+#logoImage{
+  background-image: url(/assets/client/assets/img/ssq_sprite-80fc66ca8b.png);
+    background-position: 0 -82px;
+}
+
+.shutterfly-logo {
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    background-image: url(/assets/client/assets/img/ssq_sprite-80fc66ca8b.png);
+    background-position: 0 -82px;
+    width: 141px;
+    height: 48px;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
 </style>
 
+<div style="border-bottom: 1px solid; margin-bottom: 3px; padding-bottom: 2px; display: flex; ">
+  <a href="#" id="logoImage" class="float-left" style="width: 141px; height:47px ">
+    <!-- position:absolute; top: 13px; left: 20px; background-color: red" -->
+    <!-- <img src="/assets/client/assets/img/PTlife.png" style="height: 50px; width: 174px;" alt="..."
+    /> -->
+    <i class="shutterfly-logo"></i>
+  </a>
+  <div class="float-left" style="width: 70px; height: 47px; margin-right:auto; margin-left: 20px; padding-top:10px; border-right: 1px solid; ">
+    <span style="font-size: 20px;" >Print</span>
+  </div>
+
+  <div style="text-align: right">
+    <p-button (onClick)="addToCart()" label="ADD TO CART"></p-button>
+  </div>
+</div>
+
+<div class="row" style="border-bottom: 1px solid">
+  <div class="col-lg-3" >
+    <p style="font-size: 18px; line-height:25px !important">Choose image size and quantities</p>
+  </div>
+  <div class="col-lg-1">
+    Choose material :
+  </div>
+  <div class="col-lg-6">
+    <input [(ngModel)]="material" value="glossy" type="radio">Glossy &nbsp;
+    <input [(ngModel)]="material" value="matte" type="radio">Matte &nbsp;
+    <input [(ngModel)]="material" value="pearl" type="radio">Pearl &nbsp;
+  </div>
+</div>
 
 <div class="row">
-  <div class="col-sm-3">
-    <strong>4x4</strong>
-    <p><input type="radio"></p>
-  </div>
-  <div class="col-sm-3">
-   <strong>5x7</strong>
-   <p><input type="radio"></p>
-  </div>
-  <div class="col-sm-3">
-    <strong>8x10</strong>
-   <p><input type="radio"></p>
-  </div>
-  <div class="col-sm-3">
-    <strong>8x8</strong>
-   <p><input type="radio"></p>
+    <div class="col-lg-2 col-sm-2" style="border-right: 1px dashed ; border-bottom: 1px dashed">
+      <p><strong>4x4</strong></p>
+      <p-inputNumber [(ngModel)]="quantity4x4" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [min]="0" [step]="1"
+        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+      </p-inputNumber>
+      <br>
+      <br>
+      <!-- <p  style="line-height: 0 !important"><input [(ngModel)]="material" value="glossy" type="radio">Glossy</p>
+      <p  style="line-height: 0 !important"><input [(ngModel)]="material" value="matte" type="radio">Matte</p>
+      <p  style="line-height: 0 !important"><input [(ngModel)]="material" value="pearl" type="radio">Pearl</p> -->
+    </div>
+    <div class="col-lg-2 col-sm-2" style="border-right: 1px dashed ; border-bottom: 1px dashed">
+      <p><strong>4x6</strong></p>
+      <p-inputNumber [(ngModel)]="quantity4x6" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [min]="0" [step]="1"
+        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+      </p-inputNumber>
+      <br>
+      <br>
+      <!-- <p style="line-height: 0 !important"><input [(ngModel)]="material" value="glossy" type="radio">Glossy</p>
+      <p style="line-height: 0 !important"><input [(ngModel)]="material" value="matte" type="radio">Matte</p>
+      <p style="line-height: 0 !important"><input [(ngModel)]="material" value="pearl" type="radio">Pearl</p> -->
+    </div>
+    <div class="col-lg-2 col-sm-2" style="border-right: 1px dashed ; border-bottom: 1px dashed">
+    <p><strong>5x7</strong></p>
+    <p-inputNumber [(ngModel)]="quantity5x7" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [min]="0" [step]="1"
+        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+      </p-inputNumber>
+      <br>
+      <br>
+     <!-- <p style="line-height: 0 !important"><input type="radio">Glossy</p>
+      <p style="line-height: 0 !important"><input type="radio">Matte</p>
+      <p style="line-height: 0 !important"><input type="radio">Pearl</p> -->
+    </div>
+    <div class="col-lg-2 col-sm-2" style="border-right: 1px dashed ; border-bottom: 1px dashed">
+      <p><strong>8x10</strong></p>
+      <p-inputNumber [(ngModel)]="quantity8x10" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [min]="0" [step]="1"
+        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+      </p-inputNumber>
+      <br>
+      <br>
+      <!-- <p style="line-height: 0 !important"><input type="radio">Glossy</p>
+      <p style="line-height: 0 !important"><input type="radio">Matte</p>
+      <p style="line-height: 0 !important"><input type="radio">Pearl</p> -->
+    </div>
+    <div class="col-lg-2 col-sm-2" style=" border-bottom: 1px dashed">
+      <p><strong>8x8</strong></p>
+      <p-inputNumber [(ngModel)]="quantity8x8" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [min]="0" [step]="1"
+        decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+      </p-inputNumber>
+      <br>
+      <br>
+      <!-- <p style="line-height: 0 !important"><input type="radio">Glossy</p>
+      <p style="line-height: 0 !important"><input type="radio">Matte</p>
+      <p style="line-height: 0 !important"><input type="radio">Pearl</p> -->
+    </div>
+  <div class="col-lg-2 col-sm-2" style=" border-left: 1px solid red; border-bottom: 1px solid red;">
+    <div class="row">
+      <div class="col-sm-6">Size</div>
+      <div class="col-sm-6">Price</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">4x4</div>
+      <div class="col-sm-6">10$</div>
+    </div>
   </div>
 </div>
 
 
 <div class="row fixed-bottom">
-  <div class="col-lg-12" style="background-color: gray;">
-    <p-fileUpload [multiple]="true" [customUpload]="true" (uploadHandler)="onUpload($event)"></p-fileUpload>
+  <div class="col-lg-12">
+    <p-fileUpload [multiple]="true" [customUpload]="true" (onSelect)="onUpload($event)" (uploadHandler)="onUpload($event)"></p-fileUpload>
   </div>
 
   <footer class="footer py-4" style="background-image: linear-gradient(to right,#5A5BF3, #91E7D9) !important;">

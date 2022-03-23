@@ -16,6 +16,7 @@ import { GlobalService } from './services/globals.service';
 import {TableModule} from 'primeng/table';
 import { PrintComponent } from './component/print/print.component';
 import {FileUploadModule} from 'primeng/fileupload';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     FormsModule,
     HttpClientModule,
     TableModule,
-    FileUploadModule
+    FileUploadModule,
+    InputNumberModule
   ],
   providers: [
     AdminService,
