@@ -6,17 +6,9 @@ import { HomeComponent } from "../component/home/home.component";
 @Injectable()
 export class AdminService implements CanActivate
 {
-  userSession : boolean
 
   constructor(private router: Router) { }
 
-  check(){
-    if(1 < 2){
-      this.userSession = true;
-    }else{
-      this.userSession = false;
-    }
-  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     // this.check();

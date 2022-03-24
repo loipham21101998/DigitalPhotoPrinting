@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit{
           if(this.account.username != ""){
             localStorage.setItem('session',this.account.role);
             localStorage.setItem('accountId',String(this.account.id));
+            sessionStorage.setItem('accountName',this.account.firstname +" " +this.account.lastname)
             // alert('Null');
             this.router.navigate(['/home']);
           }else{

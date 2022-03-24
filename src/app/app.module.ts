@@ -17,6 +17,7 @@ import {TableModule} from 'primeng/table';
 import { PrintComponent } from './component/print/print.component';
 import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { PrintService } from './services/print.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {InputNumberModule} from 'primeng/inputnumber';
   providers: [
     AdminService,
     AccountService,
-    GlobalService
+    GlobalService,
+    PrintService
   ],
   bootstrap: [AppComponent]
 })
