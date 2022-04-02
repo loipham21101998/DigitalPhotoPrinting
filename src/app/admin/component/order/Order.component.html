@@ -1,0 +1,48 @@
+<!-- <div class="float-right">
+  <button pButton pRipple type="button" label="Refresh" class="p-button-info" style="height: 80px; width: 80px; border-radius: 50%;"></button><br><br>
+  <i class="fa fa-refresh" aria-hidden="true"></i>
+</div> -->
+<p-table [value]="orders">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Id</th>
+          <th>Account Name</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th style="width:4rem"></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-order>
+      <tr>
+          <td>{{order?.id}}</td>
+          <td>{{order?.account}}</td>
+          <td>{{order?.date}}</td>
+          <td>{{order?.total}}</td>
+          <td>
+            <button type="button" pButton pRipple icon="fa fa-info-circle" (click)="selectOrder(order.id)"></button>
+        </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog [modal]="true" header="OrderDetails" [(visible)]="display">
+  <p-table [value]="orderDetails">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Image</th>
+            <th>Size</th>
+            <th>Material</th>
+            <th>Quantity</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-orderdetails>
+        <tr>
+            <td><img src ="{{ orderdetails?.image }}" width= 70 height = 100></td>
+            <td>{{orderdetails?.sizename}}</td>
+            <td>{{orderdetails?.materialname}}</td>
+            <td>{{orderdetails?.quantity}}</td>
+
+        </tr>
+    </ng-template>
+  </p-table>
+</p-dialog>

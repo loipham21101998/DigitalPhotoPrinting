@@ -5,5 +5,8 @@ import { Print } from "../entities/print.entity";
 export class GlobalService
 {
   titleUserpage = 'User';
+  titleOrderpage = 'Order'
+  titleMaterialpage = 'Material'
   PrintOrders : Print[];
+
 }

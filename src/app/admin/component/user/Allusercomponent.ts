@@ -9,7 +9,6 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class AllUserComponent implements OnInit{
   public title :string;
-  no: number = 1;
   accounts: Account[]
 
   constructor(
@@ -17,7 +16,6 @@ export class AllUserComponent implements OnInit{
   ){}
 
   ngOnInit(){
-    this.no++
     this.title = "User"
     this.accountService.findall().then(
       res =>{

@@ -168,16 +168,16 @@ input[type=number]::-webkit-outer-spin-button {
     Choose material :
   </div>
   <div class="col-lg-6">
-    <input [(ngModel)]="material" value="glossy" type="radio">Glossy &nbsp;
-    <input [(ngModel)]="material" value="matte" type="radio">Matte &nbsp;
-    <input [(ngModel)]="material" value="pearl" type="radio">Pearl &nbsp;
+    <input (click)="materialClick($event)" [(ngModel)]="material" value="glossy" type="radio">Glossy &nbsp;
+    <input (click)="materialClick($event)" [(ngModel)]="material" value="matte" type="radio">Matte &nbsp;
+    <input (click)="materialClick($event)" [(ngModel)]="material" value="pearl" type="radio">Pearl &nbsp;
   </div>
 </div>
 
 <div class="row">
     <div class="col-lg-2 col-sm-2" style="border-right: 1px dashed ; border-bottom: 1px dashed">
       <p><strong>4x4</strong></p>
-      <p-inputNumber [(ngModel)]="quantity4x4" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [min]="0" [step]="1"
+      <p-inputNumber (ngModelChange)="changeQuantity()" [(ngModel)]="quantity4x4" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [min]="0" [step]="1"
         decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
       </p-inputNumber>
       <br>
@@ -221,8 +221,16 @@ input[type=number]::-webkit-outer-spin-button {
       <div class="col-sm-6">Price</div>
     </div>
     <div class="row">
-      <div class="col-sm-6">4x4</div>
-      <div class="col-sm-6">10$</div>
+      <div *ngFor="let material of m">
+        <div *ngIf="material.name == materialString">
+          <div  *ngFor="let size of s">
+            {{ size?.name }} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            {{ size?.price * material?.price }} $
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -230,7 +238,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 <div class="row fixed-bottom">
   <div class="col-lg-12">
-    <p-fileUpload [disabled]= !checkbtnAdd [showUploadButton]="false" [multiple]="true" [customUpload]="true" (onSelect)="onUpload($event)" (uploadHandler)="onUpload($event)"></p-fileUpload>
+    <p-fileUpload  [showUploadButton]="false" [multiple]="false" [customUpload]="true" (onSelect)="onUpload($event)" (uploadHandler)="onUpload($event)"></p-fileUpload>
   </div>
 
   <footer class="footer py-4" style="background-image: linear-gradient(to right,#5A5BF3, #91E7D9) !important;">

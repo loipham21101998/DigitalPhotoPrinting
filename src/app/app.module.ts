@@ -18,6 +18,10 @@ import { PrintComponent } from './component/print/print.component';
 import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { PrintService } from './services/print.service';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import { OrdertService } from './services/order.service';
+import { OrderComponent } from './admin/component/order/Order.component';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { PrintService } from './services/print.service';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    PrintComponent
+    PrintComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -38,13 +43,16 @@ import { PrintService } from './services/print.service';
     HttpClientModule,
     TableModule,
     FileUploadModule,
-    InputNumberModule
+    InputNumberModule,
+    RadioButtonModule,
+    DialogModule
   ],
   providers: [
     AdminService,
     AccountService,
     GlobalService,
-    PrintService
+    PrintService,
+    OrdertService
   ],
   bootstrap: [AppComponent]
 })

@@ -8,6 +8,7 @@ import { LoginComponent } from './component/login/login.component';
 import { PrintComponent } from './component/print/print.component';
 import { RegisterComponent } from './component/register/registercomponent';
 import { AdminService } from './services/admin.service';
+import { PrintService } from './services/print.service';
 
 const routes: Routes = [
   {path : '',component: HomeComponent},
@@ -17,7 +18,7 @@ const routes: Routes = [
   // ]},
   {path : 'login', component : LoginComponent},
   {path: 'register',component: RegisterComponent},
-  {path: 'print', component: PrintComponent}
+  {path: 'print', component: PrintComponent , canActivate: [PrintService]}
   // {path: '**', component: NotFoundComponent  }
 
 ];

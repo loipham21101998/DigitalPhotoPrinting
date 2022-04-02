@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Material } from 'src/app/entities/material.entity';
+import { Size1 } from 'src/app/entities/size1.entity';
+import { PrintService } from 'src/app/services/print.service';
 
 @Component({
   // selector: 'app-root',
@@ -10,10 +14,13 @@ export class HomeComponent implements OnInit{
   title = 'DigitalPhotoPrinting';
   accCheck : boolean;
   accName : string;
+  materials : Material[];
+  sizes : Size1[]
 
   constructor(
     private emlementRef : ElementRef,
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private printService: PrintService
   ){}
 
   ngOnInit(){
@@ -24,6 +31,26 @@ export class HomeComponent implements OnInit{
     // });
     // this.accCheck = localStorage.getItem('session') =='true';
     // localStorage.setItem('session','true');
+    this.printService.allMaterial().then(
+      res => {
+        this.materials = res as Material[]
+      },
+      err => {
+        console.log(err)
+      }
+    )
+
+    this.printService.allSize().then(
+      res => {
+        this.sizes = res as Size1[]
+        console.log(this.sizes.length)
+      },
+      err => {
+        console.log(err)
+      }
+    )
+
+    // console.log(this.material?.length)
   }
 
   ngAfterViewInit(){
@@ -51,6 +78,7 @@ export class HomeComponent implements OnInit{
 
   logout(){
     localStorage.removeItem('session');
+    localStorage.removeItem('accountId');
     window.location.reload();
   }
 }

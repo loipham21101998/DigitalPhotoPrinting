@@ -4,13 +4,14 @@ import { AllUserComponent } from './component/user/Allusercomponent';
 
 
 @Component({
-  selector: 'app-root',
+  // selector: 'app-root',
   templateUrl: './admin.component.html',
 })
 
 
 export class AdminComponent implements OnInit {
   titlePage:string;
+  Username: string;
 
 
   constructor(
@@ -19,7 +20,7 @@ export class AdminComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-
+    this.Username = localStorage.getItem('accountName')
   }
 
   ngAfterViewInit(){
@@ -72,6 +73,14 @@ export class AdminComponent implements OnInit {
     // this.emlementRef.nativeElement.appendChild(demoJs);
     this.emlementRef.nativeElement.appendChild(fontawesome);
 
+  }
+
+  materialandpricepage(){
+    this.titlePage = this.globals.titleMaterialpage
+  }
+
+  orderpage(){
+    this.titlePage = this.globals.titleOrderpage
   }
 
   userpage(){

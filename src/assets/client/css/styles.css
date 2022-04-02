@@ -186,6 +186,10 @@ border-radius: 50%;
 
 }
 
+#mainNav{
+  background-image: linear-gradient(to right,#5A5BF3, #91E7D9) !important;
+}
+
 .navbar-shrink{
   background-image: linear-gradient(to right,#5A5BF3, #91E7D9) !important;
 }
